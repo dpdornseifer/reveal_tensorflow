@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>GitHub Enterprise as the center of your project universe</title>
+
+		<meta name="description" content="Butler">
+		<meta name="author" content="David Dornseifer">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+				<h1>A (non) technical introduction to TensorFlow</h1>
+				<br>
+				<hr>
+				<br>
+				David Dornseifer
+				<br>
+				<br>
+				ICN Innovation Engineering
+				</section>
+
+				<!--
+				<div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px; border-radius: 25px;" class="fragment">
+						<p style="font-size:130%;text-align:center;">
+							Introduction to Tensorflow <br>
+							David Dornseifer <br>
+							ICN Innovation Engineering
+						</p>
+					</div>
+				-->
+
+
+				<section data-background='images/tensorflow.jpg'>
+
+
+				</section>
+
+				<section>
+					<h2>Agenda</h2>
+					<hr>
+
+					<ol>
+						<li> What is TensorFlow (tf) in ... <br>
+
+							<ul>
+								<li>an non-technical way?</li>
+								<li>throug the eyes of an software engineer?</li>
+							</ul>
+						</li>
+						<li>Praktical Aspects</li>
+						<li>Demo</li>
+					</ol>
+				</section>
+
+
+				<!-- non technical introduction -->
+				<section>
+
+					<section>
+						<h2>What is Tensorflow?</h2>
+						<h3>(in general)</h3>
+					</section>
+
+					<section>
+						<h3>General Intro to tf</h3>
+						<hr>
+						<br>
+						<ul>
+							<!--<li>https://www.tensorflow.org/</li>-->
+							<li>Google Machine Learning Framework</li>
+							<li>OpenSource - create an open standard for ML</li>
+							<li>Flexible - from research to production</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h3>General Intro to tf</h3>
+						<hr>
+						<br>
+						<ul>
+							<li>Covers all aspects from testing, training to production and
+							serving of models</li>
+							<li>Portable, platform independent</li>
+							<li>Scaleable</li>
+						</ul>
+
+					</section>
+
+				</section>
+
+				<!-- technical introduction -->
+				<section>
+
+					<section>
+						<h2>What is Tensorflow?</h2>
+						<h3>(a little bit technical :) )</h3>
+					</section>
+
+					<section>
+						<h3>What is a Tensor</h3>
+						<hr>
+						<br>
+						<ul>
+							<li>n-dimensional array or list specified by <b>rank</b>:<br>
+							<ul>
+								<li>0: scalar</li>
+								<li>1: vector</li>
+								<li>2: matrix</li>
+								<li>3: 3-tensor (cube of numbers)</li>
+							</ul>
+							</li>
+							<li>Datatypes: float, double, int ... (specific) </li>
+						</ul>
+
+
+					</section>
+
+					<section>
+						<h3>What about the Flow?</h3>
+						<hr>
+						<br>
+
+						<ul>
+							<li>Modelling the computations as nodes in a directed graph</li>
+							<li>Checking for dimensional fit - pushing tensors through the network</li>
+						</ul>
+
+
+					</section>
+
+					<section>
+						<h3>What about the Flow?</h3>
+						<hr>
+						<br>
+						<!--
+						<ul>
+							<li>Creating Flow Graphs</li>
+							<li>Checking for dimensional fit - pushing tensors through the network</li>
+						</ul>
+					-->
+						<img src="https://www.tensorflow.org/images/tensors_flowing.gif" alt="" />
+
+					</section>
+
+					<section>
+						<h3>Computations?</h3>
+						<hr>
+						<br>
+						<ul>
+							<li>Computations are nodes on the graph</li>
+							<li>calculations are hidden from 'description language'</li>
+							<!--<li>Operations (Kernels) written in C++</li>-->
+							<li>Operations for different architectures (CPUs, GPUs)</li>
+							<li>Large set of kernel methods included</li>
+							<!--<li>Matrix operations on different architectures</li>-->
+						</ul>
+
+
+
+
+					</section>
+
+					<section>
+						<h3>Now, what makes tf so special</h3>
+						<hr>
+						<br>
+						<ul>
+							<li>Using grpc (protobuf) for communication between nodes</li>
+							<li>Makes parallel computations easy (GPUs, distributed)</li>
+							<li>Scalability in mind</li>
+							<li>Distributed calculations</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h2>What's included?</h2>
+						<hr>
+						<br>
+						<ul>
+							<li>Graph View</li>
+							<li>TensorBoard includes: <br>
+								<ul>
+									<li>Graph viewer</li>
+									<li>Log analyzer, see when numbers converge</li>
+									<li>...</li>
+								</ul>
+
+							</li>
+							<li>Production / serving mode</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>What is tf suited best for?</h2>
+						<hr>
+						<br>
+						<ul>
+							<li>Machine Learning</li>
+							<li>Distributed Calculations</li>
+							<li>Massive Parallelization (CUDA)</li>
+						</ul>
+					</section>
+
+				</section>
+
+
+				<!-- Practical Aspects -->
+				<section>
+					<section>
+						<h2>Practical Aspects</h2>
+					</section>
+
+					<section>
+						<h2>How and where can it be used?</h2>
+						<hr>
+						<br>
+						<ul>
+							<li>Docker (with GPU support)</li>
+							<li>Local instance</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Which Programming Languages are involved</h2>
+						<hr>
+						<br>
+						<ul>
+							<li>C / C++ for the core</li>
+							<li>Python bindings for data scientists and ml</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>What does it take to create a tf Model?</h2>
+						<hr>
+						<ol>
+							<li>graph</li>
+							<li>session</li>
+							<li>...</li>
+						</ol>
+					</section>
+
+				</section>
+
+
+				<!-- Demo Section -->
+				<section>
+
+					<section>
+						<h2>Demo</h2>
+					</section>
+
+					<section>
+						<h3>Example Code</h3>
+
+						<pre>
+							<code code data-noescape>
+	import tensorflow as <mark>tf</mark>
+
+	x = tf.constant(1.0, name='input')
+	w = tf.Variable(0.8, name='weight')
+	y = tf.mul(w, x, name='output')
+	y_ = tf.constant(0.0, name='correct_value')
+	loss = tf.pow(y - y_, 2, name='loss')
+	train_step = tf.train.GradientDescentOptimizer(0.025).minimize(loss)
+
+	for value in [x, w, y, y_, loss]:
+	    tf.scalar_summary(value.op.name, value)
+
+	summaries = tf.merge_all_summaries()
+	sess = tf.Session()
+	summary_writer = tf.train.SummaryWriter('log_simple_stats', sess.graph)
+
+	sess.run(tf.initialize_all_variables())
+	for i in range(100):
+	    summary_writer.add_summary(sess.run(summaries), i)
+	    <mark>sess.run(train_step)</mark>
+		</code></pre>
+					</section>
+
+					<section>
+						<h3>Tensorboard</h3>
+					</section>
+
+				</section>
+
+
+				<!-- Resources -->
+				<section>
+					<h2>Resources</h2>
+					<hr>
+					<ul>
+						<li><a href="https://tensorflow.org">Tensorflow Homepage</a></li>
+						<li><a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples">Tensorflow GitHub Examples</a></li>
+						<li><a href="https://www.udacity.com/course/deep-learning--ud730">Udacity Deep Learning</a></li>
+						<li><a href="https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/tutorials/deepdream">deepdream IPython Notebook</a></li>
+					</ul>
+				</section>
+
+
+				<!-- End -->
+				<section>
+					<h2>Thanks for the attention :)</h2>
+					Any questions?
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				// Open links in iframe
+				previewLinks: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				//minScale: 1,
+				//maxScale: 1,
+
+				// Parallax background image
+				//parallaxBackgroundImage: 'images/cq5dam.resized.HIGH.1.0_col.jpg', // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
+				// Parallax background size
+				//parallaxBackgroundSize: "1920px 1200px", // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
+				// Amount of pixels to move the parallax background per slide step,
+				// a value of 0 disables movement along the given axis
+				// These are optional, if they aren't specified they'll be calculated automatically
+				//parallaxBackgroundHorizontal: 200,
+				//parallaxBackgroundVertical: 50,
+
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
