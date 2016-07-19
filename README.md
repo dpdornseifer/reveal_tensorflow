@@ -1,6 +1,6 @@
-### GoogleIO 2016
+### TensorFlow 
 
-This slides are about GoogleIO 2016
+This slides are about Google TensorFlow
 
 
 #### powered by reveal.js
